@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AQI Dashboard</title>
+
+    <!-- CSS (Flask) -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Leaflet (Map) -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+</head>
+
+<body>
+
+<h2>AQI Dashboard</h2>
+
+<div class="main">
+
+    <!-- INPUT -->
+    <div class="section input-section">
+        <h3>Input</h3>
+        <input id="pm25" placeholder="PM2.5">
+        <input id="pm10" placeholder="PM10">
+        <input id="no2" placeholder="NO2">
+        <input id="co" placeholder="CO">
+        <input id="o3" placeholder="O3">
+        <button onclick="predictAQI()">Predict</button>
+    </div>
+
+    <!-- RESULTS -->
+    <div class="section result-section">
+        <h3>Results</h3>
+        <div id="result"></div>
+
+        <h3>Health Advisory</h3>
+        <div id="advisory"></div>
+    </div>
+
+    <!-- VISUAL -->
+    <div class="section visual-section">
+        <h3>Charts Analysis</h3>
+        <canvas id="gaugeChart"></canvas>
+        <canvas id="pieChart"></canvas>
+        <canvas id="barChart"></canvas>
+    </div>
+
+    <!-- MAP -->
+    <div class="section map-section">
+        <h3>Map</h3>
+        <div id="map"></div>
+    </div>
+
+</div>
+
+<!-- JS (Flask) -->
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
